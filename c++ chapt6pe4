@@ -1,0 +1,85 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+using namespace std;
+const int strsize = 20;
+struct bop
+{
+    char fullname[strsize];
+    char title[strsize];
+    char bopname[strsize];
+    int preference;
+};
+void prompt_choices();
+
+int main()
+{
+    bop info[5] =
+    {
+        {"Wimp Macho",
+        "Boss",
+        "WM",
+        0},
+        {"Raki Rhodes",
+        "Product manager",
+        "RR",
+        1},
+        {"Celia Laiter",
+        "Software architect",
+        "CL",
+        2},
+        {"Hoppy Hipman",
+        "Programmer",
+        "HH",
+        1},
+        {"Pat Hand",
+        "software developer",
+        "PH",
+        0}
+    };
+    char ch;
+    prompt_choices();
+    cout << "Enter your choice: ";
+    cin >> ch;
+    while (ch!='q')
+    {
+        switch(ch)
+        {
+            case 'a': for (int i=0;i<5;++i){cout << info[i].fullname << endl;};
+                      break;
+            case 'b': for (int i=0;i<5;++i){cout << info[i].title << endl;};
+                      break;
+            case 'c': for (int i=0;i<5;++i){cout << info[i].bopname << endl;};
+                      break;
+            case 'd': for (int i=0;i<5;++i)
+                            {
+                                if (info[i].preference==0)
+                                {
+                                    cout << info[i].fullname << endl;
+                                }
+                                else if (info[i].preference==1)
+                                {
+                                    cout << info[i].title << endl;
+                                }
+                                else cout << info[i].bopname <<endl;
+                            };
+                       break;
+            default: cout << "Warning: That's not a choice!" << endl;
+                     prompt_choices();
+                break;
+        }
+        cout << "Next choice: ";
+        cin >> ch;
+    }
+cout << "Bye!";
+ return 0;
+}
+
+void prompt_choices()
+{
+    cout << "Benevolent Order of Programmers Report " << endl;
+    cout << "a. display by name            " << "b. display by title       " << endl;
+    cout << "c. display by bopname         " << "d. display by preference  " << endl;
+    cout << "q. quit  "<< endl;
+}
