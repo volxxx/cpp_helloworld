@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    int rows;
+    cout << "Enter number of rows: " << endl;
+    cin >> rows;
+    char aster[rows][rows];
+    for (int i=0; i<rows; ++i)
+    {
+        for (int j=0; j<rows; ++j)
+        {
+            aster[i][j]='.';
+        }
+    }
+    for (int i=0; i<rows; ++i)
+    {
+        for (int j=0;j<=i;++j)
+            {
+                aster[i][rows-1-j]='*';
+            }
+    }
+
+       for (int i=0; i<rows; ++i)
+    {
+        for (int j=0; j<rows; ++j)
+        {
+            cout << aster[i][j];
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
