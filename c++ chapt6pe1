@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+using namespace std;
+
+int main()
+{
+   char ch;
+   cout << "Please enter keyboard input: " << endl;
+   cin.get(ch);
+   while (ch!='@')
+          {
+              if (isupper(ch))
+                   {    ch= tolower(ch);
+                       cout << ch ;
+                   }
+
+                else if(islower(ch))
+                {
+                    ch=toupper(ch);
+                    cout << ch;
+                }
+                else if (ch=='\n')
+                    cout << '\n' << "Please enter keyboard input: " << endl;
+                else if (isdigit(ch))
+                {
+                    cin.clear();
+                }
+                else cout << ch;
+               cin.get(ch);
+
+          }
+          cout << ch << '\n' << "The program read input to symbol @ " << endl;
+ return 0;
+}
+
+
