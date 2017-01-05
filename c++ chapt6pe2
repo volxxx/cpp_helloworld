@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+using namespace std;
+
+int main()
+{
+   double donation[10];
+   double total=0.0;
+   double average;
+   int i;
+   cout << "Please enter donation values: " << endl;
+   for (i=0;i<10;++i)
+   {
+       if (cin >> donation[i])
+       {
+           total+=donation[i];
+
+       }
+       else
+       {   cout << "You've entered a non-numeric value." << endl;
+           break;
+        }
+   }
+    average=total/i;
+    int k=0;
+   for (int j=0;j<10;++j)
+   {
+       if(donation[j]>average)
+       {
+           ++k;
+       }
+       else continue;
+   }
+   cout << "The average of the numbers is: " << average << endl;
+   cout << k << " numbers in the array are larger than average." <<endl;
+ return 0;
+}
+
+
