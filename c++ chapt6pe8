@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<fstream>
+using namespace std;
+const int Size = 50;
+
+
+int main()
+{
+  char filename[Size];
+  ifstream fina;
+  cout << "Enter the name of data file: " << endl;
+  cin.getline(filename,Size);
+  fina.open(filename);
+  if (!fina.is_open())
+  {
+      cout << "Could not open the file " << filename << endl;
+      cout << "Program terminating.\n";
+      exit(EXIT_FAILURE);
+  }
+  char ch;
+  int sum=0;
+  fina >> ch;
+  while (fina.good())
+  {
+      ++sum;
+      fina >> ch;
+  }
+  if (fina.eof())
+  {
+      cout << "End of the file reached.\n";
+  }
+  else cout << "Input terminated for unknown reasons.\n";
+  if (sum==0)
+  cout << "No data processed.\n";
+  else
+  {
+      cout << "Characters read: " << sum << endl;
+  }
+  fina.close();
+    return 0;
+}
+
+
