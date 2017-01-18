@@ -1,0 +1,65 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<fstream>
+#include<cctype>
+using namespace std;
+const int Size = 20;
+
+
+int main()
+{
+  char filename[Size];
+  ifstream fina;
+  cout << "Enter the name of data file: " << endl;
+  cin.getline(filename,Size);
+  fina.open(filename);
+  if (!fina.is_open())
+  {
+      cout << "Could not open the file " << filename << endl;
+      cout << "Program terminating.\n";
+      exit(EXIT_FAILURE);
+  }
+  int num,i;
+  fina >> num;
+  fina.get();
+  cout << "The number of contributors is: " << num << endl;
+  char data[Size];
+  i=1;
+  string * ch = new string [num];
+  int * in = new int [num];
+  while ( fina.getline(data,Size) && (i<=num))
+  {
+      switch (isalpha(data[0]))
+      {
+          case true : cout << "The name of contributor " << i << " is " << data << endl;
+                      ch[i-1]=data;
+                      break;
+          case false : cout << "The amount of contributor " << i << " is " << data << endl;
+                      in[i-1]=atoi(data);
+                      ++i;
+                      break;
+      }
+  }
+  cout << "Grand Patrons: \n";
+  for (int j=0;j<num;++j)
+  {
+      if (in[j]>=10000)
+          cout << ch[j] << " " << in[j] << endl;
+  }
+  cout << "Patrons: \n";
+  for (int j=0;j<num;++j)
+  {
+      if (in[j]<10000)
+          cout << ch[j] << " " << in[j] << endl;
+  }
+  if (fina.eof())
+  {
+      cout << "End of the file reached.\n";
+  }
+  else cout << "Input terminated for unknown reasons.\n";
+  fina.close();
+  delete [] ch;
+  delete [] in;
+    return 0;
+}

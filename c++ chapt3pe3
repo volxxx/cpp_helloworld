@@ -1,0 +1,28 @@
+#include <iostream>
+
+
+
+
+int main()
+{
+    using namespace std;
+    cout.setf(ios_base::fixed,ios_base::floatfield);
+    float de;
+    float mi;
+    float se;
+    cout << "Enter a latitude in degrees, minutes, and seconds: " <<endl;
+    cout << "First, enter the degrees: \n";
+    cin >> de;
+    cout << "Second, enter the minutes: \n ";
+    cin >> mi;
+    cout << "Third, enter the seconds: \n ";
+    cin >> se;
+
+    float ss = se/3600;
+    float mm = mi/60;
+    double dd=de+ mm+ ss;
+    cout << de <<"degrees, " << mi << "minutes, " << se << "seconds = "<< dd << "degrees.";
+    return 0;
+}
+
+

@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct pizza_analysis
+{
+    string pizzacompany;
+    double diameter;
+    double weight;
+};
+
+int main()
+{
+
+    pizza_analysis *pt = new pizza_analysis;
+    cout << "Please enter the diameter (in mm) of the pizza: \n";
+    cin >> (*pt).diameter;
+    cout << "Please enter the name of pizzacompany: \n";
+    cin.get();
+    getline(cin,pt->pizzacompany);
+    cout << "Please enter the weight (in lb) of the pizza: \n";
+    cin >> pt->weight;
+    cout << "pizza company of sample: " << pt->pizzacompany << endl;
+    cout << "pizza diameter of sample: " << pt->diameter << endl;
+    cout << "pizza weight of sample: " << pt->weight << endl;
+    delete pt;
+    return 0;
+}

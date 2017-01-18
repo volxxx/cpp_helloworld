@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+using namespace std;
+const int Size=15;
+char word[Size];
+int count_vowel=0;
+int count_consonant=0;
+int count_others=0;
+
+
+int main()
+{
+    cout << "Enter words (q to quit): " << endl;
+    while (cin >> word)
+    {
+        if (isalpha(word[0]))
+        {
+            if(word[0]=='a'||word[0]=='A'||word[0]=='e'||word[0]=='E'||word[0]=='i'||word[0]=='I'||word[0]=='o'||word[0]=='O'||word[0]=='u'||word[0]=='U')
+        {
+            ++count_vowel;
+        }
+            else if ((word[0]=='q')&&(word[1]==0))
+            break;
+            else ++count_consonant;
+        }
+        else ++count_others;
+    }
+cout << count_vowel << " words beginning with vowels" << endl;
+cout << count_consonant << " words beginning with consonant" << endl;
+cout << count_others << " others" << endl;
+    return 0;
+}
+
+

@@ -1,0 +1,25 @@
+#include<iostream>
+
+using namespace std;
+
+
+int main()
+{
+
+    double Dap, Cle, sum1,sum2;
+    Dap = 100.0;
+    Cle = 100.0;
+    sum1 = Dap;
+    sum2 = Cle;
+    int i = 1;
+    while (sum1 >= sum2)
+    {
+       cout << "Daphne's investment: " << sum1 << endl;
+       cout << "Cleo's investment: " << sum2 << endl;
+       sum1= sum1 + Dap * 0.1;
+       sum2= sum2 * (1.05);
+       ++i;
+    }
+    cout << "How many years will Cleo surpass Daphne? " << i << endl;
+    return 0;
+}

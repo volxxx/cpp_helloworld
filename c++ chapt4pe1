@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cstring>
+
+int main()
+{
+    using namespace std;
+    const int Size = 20;
+    const int punct = 4;
+    char firstname[Size];
+    char lastname[Size];
+    char * ps;
+
+    char comma[punct] = ",";
+    char space[punct] = " ";
+    cout << "Enter your first name:\n";
+    cin.getline(firstname,Size);
+    cout << "Enter your last name:\n";
+    cin.getline(lastname,Size);
+    strcat(lastname, comma);
+    strcat(lastname, space);
+    strcat(lastname, firstname);
+    cout << "Here is the information in a single string:\n";
+    cout << lastname << endl;
+    cout << &firstname << endl;
+    ps = firstname;
+    cout << (int *)ps <<endl;
+    return 0;
+}
+
+

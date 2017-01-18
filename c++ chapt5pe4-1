@@ -1,0 +1,38 @@
+#include<iostream>
+
+using namespace std;
+
+
+int main()
+{
+
+    int sum;
+    sum = 0;
+     const char * months[12]=
+    {
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    };
+
+    int sales [12];
+
+   for (int i=0;i<12;++i)
+   {
+       cout << "enter the sales of " << months[i] << ":" << endl;
+       cin >> sales[i];
+       sum = sum + sales[i];
+
+   }
+    cout << "Total sales are: " << sum << endl;
+    return 0;
+}

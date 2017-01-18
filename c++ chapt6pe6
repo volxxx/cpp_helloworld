@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+using namespace std;
+struct contributors
+{
+    string name;
+    double contrib;
+};
+int num=0;
+
+int main()
+{
+    cout << "Enter the number of contributors: " << endl;
+    cin >> num;
+    if (num!=0)
+    {
+        contributors * ps = new contributors[num];
+        for(int i=0;i<num;++i)
+        {
+            cout << "Enter the name of contributor " << i+1 << " :" << endl;
+            cin.get();
+            getline(cin,ps[i].name);
+            cout << "Enter the amount of contributor " << i+1 << " :" << endl;
+            cin >> ps[i].contrib;
+        }
+        cout << "Grand Patrons: \n";
+        for (int j=0;j<num;++j)
+        {
+            if(ps[j].contrib>=10000)
+            {
+                cout <<  ps[j].name << " " << ps[j].contrib << endl;
+            }
+        }
+        cout << "Patrons: \n";
+        for (int k=0;k<num;++k)
+        {   if(ps[k].contrib < 10000)
+        {
+            cout << ps[k].name << " " << ps[k].contrib << endl;
+        }
+        }
+        delete [] ps;
+    }
+    else cout << "none." << endl;
+
+
+    return 0;
+}
+
+
